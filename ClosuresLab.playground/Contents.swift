@@ -26,28 +26,48 @@ assert(myVal == 5, "Expected myVal to be five, but was \(myVal)")
 
 // Write a function called multiples(of:in) that takes in an array of Ints and returns all of the Ints that are a multiple of a given number n.  Use filter in your function.
 
-// Your function here
+func multiples(_ firstVar: Int, inArray: [Int] ) -> [Int] {
+    let answer2 = inArray.filter {
+        $0 % firstVar == 0
+    }
+    return answer2
+}
 
 // Uncomment out the following lines to check your solution
 
-//let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
-//let expectedOutputTwo = [3, 6, 9, 3, 12]
-//let outputTwo = multiples(of: 3, in: numbers)
-//assert(outputTwo == expectedOutputTwo, "Expected output to be \(expectedOutputTwo), but found \(outputTwo)")
+let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
+let expectedOutputTwo = [3, 6, 9, 3, 12]
+let outputTwo = multiples(3, inArray: numbers)
+assert(outputTwo == expectedOutputTwo, "Expected output to be \(expectedOutputTwo), but found \(outputTwo)")
 
 
 // Question Three
 
 // Write a function called largestValue(in:) that finds the largest Int in an array of Ints. Use reduce to solve this exercise.
 
-// Your function here
+
+func largestValue (numbers: [Int]) -> Int {
+    var results = 0
+    
+     guard let first = numbers.first else { return -1 }
+     results = numbers.reduce(first) { prevValue, currentValue in
+        if prevValue > currentValue {
+            return prevValue
+        } else {
+            return currentValue
+        }
+    }
+    return results
+}
+
+
 
 // Uncomment out the following lines to check your solution
 
-//let moreNumbers = [4, 7, 1, 9, 6, 5, 6, 9]
-//let expectedOutputThree = 9
-//let outputThree = largestValue(in: moreNumbers)
-//assert(outputThree == expectedOutputThree, "Expected output to be \(expectedOutputThree), but found \(outputThree)")
+let moreNumbers = [4, 7, 1, 9, 6, 5, 6, 9]
+let expectedOutputThree = 9
+let outputThree = largestValue(numbers: moreNumbers)
+assert(outputThree == expectedOutputThree, "Expected output to be \(expectedOutputThree), but found \(outputThree)")
 
 
 // Question Four
@@ -85,7 +105,7 @@ assert(myVal == 5, "Expected myVal to be five, but was \(myVal)")
 
 // Write a function called sumOfSquaresOfOddNumbers(in:) that returns the sum of the squares of all the odd numbers from an array of Ints.  Use filter, map and reduce in your function.
 
-// Your function here
+// Your function her e
 
 // Uncomment out the following lines to check your solution
 
